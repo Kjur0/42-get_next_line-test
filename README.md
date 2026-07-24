@@ -62,3 +62,22 @@ Assets tests use `*.txt` files from `assets` folder to test `gnl` against them. 
 | `long_line` | about 1000 `\|`                   | [`long_line.txt`](./assets/long_line.txt) |
 | `lorem`     | 5 lines of lorem ipsum            | [`lorem.txt`](./assets/lorem.txt)         |
 | `lipsum`    | 20 lines of lorem ipsum           | [`lipsum.txt`](./assets/lipsum.txt)       |
+
+### Errors
+
+Those ensure that `gnl` handles errors correctly:
+* Doesn't crash
+* Returns `NULL` when an error occurs
+
+| Name            | Description                       |
+|-----------------|-----------------------------------|
+| `fd_not_opened` | File descriptor not opened        |
+| `fd_invalid`    | File descriptor `-1` (invalid)    |
+| `fd_too_large`  | File descriptor `INT_MAX`         |
+
+### `stdin`
+
+Only one test is done for `stdin`:
+
+`stdin.stdin` works by reading [`stdin.txt`](./assets/stdin.txt) file and redirecting it to `stdin` of the program.  
+It is used to test `gnl` against `stdin`.
