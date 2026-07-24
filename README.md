@@ -52,13 +52,13 @@ Bellow is the list of all tests:
 
 Assets tests use `*.txt` files from `assets` folder to test `gnl` against them. Each file has different content and is used to test different scenarios.
 
-| Name        | Description                       | File                                    |
-|-------------|-----------------------------------|-----------------------------------------|
-| `empty`     | Empty file                        | [`empty.txt`](assets/empty.txt)         |
-| `nl`        | File with only new line           | [`nl.txt`](assets/nl.txt)               |
-| `space`     | File with only space              | [`space.txt`](assets/space.txt)         |
-| `space_nl`  | File with only space and new line | [`space_nl.txt`](assets/space_nl.txt)   |
-| `2line`     | File with two lines               | [`2line.txt`](assets/2line.txt)         |
-| `long_line` | about 1000 `\|`                   | [`long_line.txt`](assets/long_line.txt) |
-| `lorem`     | 5 lines of lorem ipsum            | [`lorem.txt`](assets/lorem.txt)         |
-| `lipsum`    | 20 lines of lorem ipsum           | [`lipsum.txt`](assets/lipsum.txt)       |
+| Name        | Description                       | File                                      |
+|-------------|-----------------------------------|-------------------------------------------|
+| `empty`     | Empty file                        | [`empty.txt`](./assets/empty.txt)         |
+| `nl`        | File with only new line           | [`nl.txt`](./assets/nl.txt)               |
+| `space`     | File with only space              | [`space.txt`](./assets/space.txt)         |
+| `space_nl`  | File with only space and new line | [`space_nl.txt`](./assets/space_nl.txt)   |
+| `2line`     | File with two lines               | [`2line.txt`](./assets/2line.txt)         |
+| `long_line` | about 1000 `\|`                   | [`long_line.txt`](./assets/long_line.txt) |
+| `lorem`     | 5 lines of lorem ipsum            | [`lorem.txt`](./assets/lorem.txt)         |
+| `lipsum`    | 20 lines of lorem ipsum           | [`lipsum.txt`](./assets/lipsum.txt)       |
