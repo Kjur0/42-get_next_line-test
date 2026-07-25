@@ -6,16 +6,16 @@
 #    By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/24 18:57:37 by kjurkows          #+#    #+#              #
-#    Updated: 2026/07/24 21:37:37 by kjurkows         ###   ########.fr        #
+#    Updated: 2026/07/25 17:59:52 by kjurkows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	get_next_line-test
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -g
 CXX				=	c++
-CXXFLAGS		=	-std=c++17 -Wall -Wextra -Werror
+CXXFLAGS		=	-std=c++17 -Wall -Wextra -Werror -g
 BONUS_FLAGS		=	-D BONUS
 
 GNL_DIR			=	./get_next_line
@@ -51,18 +51,18 @@ POSITION		=	\033[2K\r
 
 all: $(OBJS) $(GNL_OBJS)
 	@echo -n "$(CYAN)Compiling $(NAME)...$(RESET)"
-	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%1.o) $(GTEST_FLAGS) -o $(NAME)1
-	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%2.o) $(GTEST_FLAGS) -o $(NAME)2
-	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%3.o) $(GTEST_FLAGS) -o $(NAME)3
-	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%4.o) $(GTEST_FLAGS) -o $(NAME)4
+	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%1.o) $(GTEST_FLAGS) -o $(NAME)1 -fsanitize=address
+	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%2.o) $(GTEST_FLAGS) -o $(NAME)2 -fsanitize=address
+	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%3.o) $(GTEST_FLAGS) -o $(NAME)3 -fsanitize=address
+	@$(CXX) $(CXXFLAGS) $(OBJS) $(GNL_OBJS:%.o=%4.o) $(GTEST_FLAGS) -o $(NAME)4 -fsanitize=address
 	@echo "$(POSITION)$(GREEN)Compiled $(NAME)!$(RESET)"
 
 bonus: $(OBJS) $(GNL_BONUS_OBJS)
 	@echo -n "$(CYAN)Compiling $(NAME)...$(RESET)"
-	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%1.o) $(GTEST_FLAGS) -o $(NAME)1
-	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%2.o) $(GTEST_FLAGS) -o $(NAME)2
-	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%3.o) $(GTEST_FLAGS) -o $(NAME)3
-	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%4.o) $(GTEST_FLAGS) -o $(NAME)4
+	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%1.o) $(GTEST_FLAGS) -o $(NAME)1 -fsanitize=address
+	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%2.o) $(GTEST_FLAGS) -o $(NAME)2 -fsanitize=address
+	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%3.o) $(GTEST_FLAGS) -o $(NAME)3 -fsanitize=address
+	@$(CXX) $(CXXFLAGS) $(BONUS_FLAGS) $(OBJS) $(GNL_BONUS_OBJS:%.o=%4.o) $(GTEST_FLAGS) -o $(NAME)4 -fsanitize=address
 	@echo "$(POSITION)$(GREEN)Compiled $(NAME)!$(RESET)"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR)
@@ -89,7 +89,10 @@ clean:
 
 fclean: clean
 	@echo -n "$(YELLOW)Cleaning $(NAME)...$(RESET)"
-	@$(RM) $(NAME)
+	@$(RM) $(NAME)1
+	@$(RM) $(NAME)2
+	@$(RM) $(NAME)3
+	@$(RM) $(NAME)4
 	@echo "$(POSITION)$(GREEN)Cleaned $(NAME)!$(RESET)"
 
 re: fclean all

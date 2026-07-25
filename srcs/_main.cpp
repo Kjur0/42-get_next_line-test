@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 19:02:14 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/07/24 19:13:54 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/07/25 16:20:20 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 TEST(norminette, norme)
 {
-	int	exit_code = system("norminette");
+	const int	exit_code = system("norminette");
 
 	EXPECT_EQ(exit_code, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 21:05:50 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/07/24 22:00:33 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/07/25 16:19:45 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ TEST(errors, fd_not_opened)
 
 		const char	*line = get_next_line(fd);
 
-		EXPECT_EQ(line, nullptr);
-
-		exit(0);
+		exit(!!line);
 	}, ::testing::ExitedWithCode(0), "");
 }
 
@@ -39,9 +37,7 @@ TEST(errors, fd_invalid)
 
 		const char	*line = get_next_line(fd);
 
-		EXPECT_EQ(line, nullptr);
-
-		exit(0);
+		exit(!!line);
 	}, ::testing::ExitedWithCode(0), "");
 }
 
@@ -52,8 +48,6 @@ TEST(errors, fd_too_large)
 
 		const char	*line = get_next_line(fd);
 
-		EXPECT_EQ(line, nullptr);
-
-		exit(0);
+		exit(!!line);
 	}, ::testing::ExitedWithCode(0), "");
 }
