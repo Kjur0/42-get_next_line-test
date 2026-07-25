@@ -1,6 +1,6 @@
 *This project has been created as part of the 42 curriculum by **kjurkows***
 
-# `ft_get_next_line-test`
+# `get_next_line-test`
 
 **IT IS NOT NORM COMPLIANT**
 
